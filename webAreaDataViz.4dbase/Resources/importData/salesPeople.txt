@@ -1,0 +1,11 @@
+First_Name	Last_Name	Number	Total Sales
+Marty	Harrington	555-843-6919	739580
+Brett	Frank	555-212-1811	1222850
+Lila	Wells	555-319-8962	1252060
+Calvin	Pratt	555-238-5570	1363360
+Brendan	Spencer	555-100-8624	1111820
+Christina	Murphy	555-331-8863	1351700
+Vickie	Rodgers	555-562-2466	1243480
+Edgar	Rodgers	555-953-5698	1211720
+Paul	Kelley	555-476-3184	1354810
+Myron	Fowler	555-016-8438	1090820

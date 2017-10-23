@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Sales Team Visualization</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+		<script>
+
+			$(document).ready(function() {
+
+				// load the basic chart, displayed with no data
+				var ctx = document.getElementById('myChart').getContext('2d');
+
+				var chart = new Chart(ctx, {
+					// The type of chart we want to create
+					type: 'line',
+
+					// The data for our dataset
+					data: {
+						labels: [],
+						datasets: [{
+							label: "No Data Selected",
+							backgroundColor: 'rgb(31, 37, 48)',
+							borderColor: 'rgb(31, 37, 48)',
+							data: [],
+						}]
+					},
+
+					// Configuration options go here
+					options: {}
+				});
+				
+			});
+
+			function grabData(lbs,lb,bgc,bc,d) {
+				var lbsArray = [];
+				var dArray = [];
+				var data = {};
+				// turn 'lbs' object into an array
+				for (var i = 0 in lbs) {
+					lbsArray.push(lbs[i]);
+				}
+				// turn 'd' object into an array
+				for (var i = 0 in d) {
+					dArray.push(d[i]);
+				}
+				// update data object kev-value pairs
+				data.labels = lbsArray;
+				data.datasets = [];
+				data.datasets.push({
+					label:lb,
+					backgroundColor:bgc,
+					borderColor:bc,
+					data:dArray
+				});
+
+				//console.log(data);
+
+				// run updateChart function with data object to update the chart
+				updateChart(data);
+			}
+
+			function updateChart(dataObject) {
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var chart = new Chart(ctx, {
+					// The type of chart we want to create
+					type: 'line',
+
+					// The data for our dataset
+					data: dataObject,
+
+					// Configuration options go here
+					options: {}
+				});
+			}
+
+			function removeData(chart) {
+				chart.data.labels.pop();
+				chart.data.datasets.forEach((dataset) => {
+					dataset.data.pop();
+				});
+			}
+
+			function killChart() {
+				console.log(Chart);
+				Chart.destroy();
+			}
+
+		</script>
+	</head>
+	<body>
+		<h1>Hello 4D Database!</h1>
+
+		<canvas id="myChart"></canvas>
+
+	</body>
+</html>
